@@ -9,6 +9,9 @@ import { UserService } from './user/services/user.service';
 export class AppComponent {
   title = 'pokerplanning';
 
+  num = "9";
+  num2 = "2"
+
   constructor(private userService : UserService) {}
 
   isLogged() : boolean {
