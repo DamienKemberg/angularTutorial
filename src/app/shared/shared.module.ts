@@ -4,7 +4,7 @@ import { ConnectedDirective } from './directives/connected.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 
 const declarations = [
-  ConnectedDirective
+  ConnectedDirective, HighlightDirective
 ];
 
 @NgModule({
