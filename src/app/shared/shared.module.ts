@@ -4,9 +4,10 @@ import { ConnectedDirective } from './directives/connected.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 import { SquarePipe } from './pipes/square.pipe';
 import { PowerPipe } from './pipes/power.pipe';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 const declarations = [
-  ConnectedDirective, HighlightDirective, SquarePipe, PowerPipe
+  ConnectedDirective, HighlightDirective, SquarePipe, PowerPipe, ProgressBarComponent
 ];
 
 @NgModule({
