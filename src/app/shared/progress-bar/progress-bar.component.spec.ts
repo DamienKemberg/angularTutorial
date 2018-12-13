@@ -1,60 +1,53 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgressBarComponent } from './progress-bar.component';
+import { Component, ViewChild } from '@angular/core';
+import { start } from 'repl';
+
+@Component({
+  selector: 'test',
+  template: "<app-progress-bar [value]='value' [max]='max' #progressBar></app-progress-bar>"
+})
+
+class TestComponent {
+  value = 10;
+  max = 100;
+
+  @ViewChild('progressBar') progressBar: ProgressBarComponent;
+
+  start() {
+
+  }
+
+}
 
 fdescribe('ProgressBarComponent', () => {
-  let component: ProgressBarComponent;
-  let fixture: ComponentFixture<ProgressBarComponent>;
+  let component: TestComponent;
+  let fixture: ComponentFixture<TestComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgressBarComponent ]
+      declarations: [ TestComponent, ProgressBarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProgressBarComponent);
+    fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  
 
-  it('should set start value at 0', () => {
-    expect(component.value).toEqual(0);
-  });
+  it('should call start when clicking on start button', () => {
+    const spy = spyOn(component.progressBar, 'start');
 
-  it('should toggle running flag when starting', () => {
-    expect(component.running).toBeFalsy();
-    component.start();
-    expect(component.running).toBeTruthy();
-  });
+    const button = (fixture.nativeElement as HTMLElement).querySelector('button');
+    button.click();
 
-  it('should toggle running flag when stopping', () => {
-    component.start();
-    expect(component.running).toBeTruthy();
-    component.end();
-    expect(component.running).toBeFalsy();
-  });
+    expect(spy).toHaveBeenCalled();
 
-  it('should stop counting when stopping', (done) => {
-    component.start();
-    
-    const subs = component.interval$.subscribe(
-      value => {},
-      error => {},
-      () => { 
-        //expect(subs).toBeFalsy();
-        done();
-      }
-    );
-
-    component.end();
-
-    
 
   });
 
