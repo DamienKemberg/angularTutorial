@@ -16,7 +16,7 @@ class TestComponent {
   @ViewChild('progressBar') progressBar: ProgressBarComponent;
 
   start() {
-
+    this.progressBar.start();
   }
 
 }
