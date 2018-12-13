@@ -1,3 +1,12 @@
-<p>
-  rooms works!
-</p>
+<input [formControl]="roomNameControl">
+<button type="button" (click)="createRoom()">Create room</button>
+
+
+<ul>
+  <li *ngFor="let room of rooms"> 
+    {{ room.name }}
+    <a (click)="edit(room)">Edit</a>
+    <a (click)="delete(room)">Delete</a>
+  </li>
+  
+</ul>
