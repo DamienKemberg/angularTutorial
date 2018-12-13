@@ -57,8 +57,8 @@ export class RoomsComponent implements OnInit {
   delete(room: Room) : void {
     this.http.delete(environment.apiUrl + 'rooms/' + room.id ).subscribe(
       value => {
-        this.getRooms();}
-      )
+        this.getRooms();
+      });
   }
 
 }

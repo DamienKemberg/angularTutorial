@@ -5,8 +5,9 @@
 <ul>
   <li *ngFor="let room of rooms"> 
     {{ room.name }}
-    <a (click)="edit(room)">Edit</a>
-    <a (click)="delete(room)">Delete</a>
+    <button type="button" (click)="edit(room)">Edit</button>
+    <button type="button" (click)="delete(room)">Delete</button>
+    <button type="button" [routerLink]="room.id">View</button>
   </li>
   
 </ul>
