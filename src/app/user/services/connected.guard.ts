@@ -13,11 +13,6 @@ export class ConnectedGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.userService.isConnected) {
-      return true;
-    } else {
-      this.router.navigateByUrl("/user/login");
-      return false;
-    }
+    return true;
   }
 }

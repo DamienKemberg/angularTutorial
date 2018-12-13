@@ -1,2 +1,15 @@
-<button name="login" (click)="login()">Login</button>
+<form [formGroup]="loginForm" [ngClass]="{invalid: loginForm.invalid}">
+    status {{ loginForm.status }}
+    <div>
+      EMAIL : <input name="email" formControlName="email">
+    </div>
+    <div>
+      PASSWORD: <input name="password" formControlName="password" type="password">
+    </div>
+  
+    <button name="login" (click)="login()">Submit</button>
+  </form>
 
+  <ng-container *ngIf="registerError">
+    {{ registerError }}
+  </ng-container>
